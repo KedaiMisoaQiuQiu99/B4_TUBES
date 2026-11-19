@@ -167,24 +167,22 @@ a{color:inherit}
   padding: var(--j) 0;
 }
 
-/* Garis vertikal dari Pemilik */
+/* Garis vertikal dari Pemilik sampai Kepala Kedai */
 .org-tengah::before {
   content: "";
   position: absolute;
-  left: 50%;
+  left: calc(50% - var(--t) / 2);
   top: -3px;
   bottom: -6px;
   width: var(--t);
-  transform: translateX(-50%);
   background: var(--garis);
 }
-
 /* Garis horizontal penghubung */
 .org-tengah::after {
   content: "";
   position: absolute;
-  left: 15%;
-  right: 15%;
+  left: calc(15% - var(--t) / 2);
+  right: calc(15% - var(--t) / 2);
   top: calc(var(--j) / 2);
   height: var(--t);
   background: var(--garis);
@@ -194,11 +192,21 @@ a{color:inherit}
 .org-manajer::before {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: calc(100% - 3px);
-  height: calc(var(--j) / 2 + 4px);
+  left: calc(50% - var(--t) / 2);
+  bottom: 100%;
+  height: calc(var(--j) / 2);
   width: var(--t);
-  transform: translateX(-50%);
+  background: var(--garis);
+}
+
+/* Sambungan ke masing-masing Manajer */
+.org-manajer::before {
+  content: "";
+  position: absolute;
+  left: calc(50% - var(--t) / 2);
+  bottom: calc(100% + 1px);
+  height: calc(var(--j) / 2 + 1px);
+  width: var(--t);
   background: var(--garis);
 }
 
@@ -271,17 +279,22 @@ a{color:inherit}
   content:""; position:absolute; left:-1.2rem; top:25%; bottom:-14px; width:var(--t); background:var(--garis);
 }
 
-/* Tablet dan HP: kotak menumpuk, garis utama disembunyikan */
-@media (max-width:991px){
-  .org-tengah::before, .org-tengah::after, .org-manajer::before,
-  .org-bawah::after, .org-bawah::before, .org-bawah > li::before{ display:none; }
-  .org-tengah{ flex-direction:column; align-items:center; gap:12px; padding:16px 0; }
-  .org-manajer{ width:min(100%,320px); }
-  .org .org-bawah{ grid-template-columns:repeat(2,1fr); gap:18px 0; padding-top:20px; }
-  .org-pemilik{ padding:.8rem 2rem; }
+/* Tablet dan HP: tampilan sama seperti laptop, bisa digeser ke samping */
+.org-geser{ overflow-x:auto; -webkit-overflow-scrolling:touch; padding:0 4px 14px; }
+@media (max-width:1100px){
+  .org-geser .org{ min-width:1000px; }
 }
-@media (max-width:576px){
-  .org .org-bawah{ grid-template-columns:1fr; }
+
+/* Scrollbar selalu terlihat (dengan panah kiri-kanan) */
+.org-geser::-webkit-scrollbar{ height:14px; }
+.org-geser::-webkit-scrollbar-track{ background:rgba(23,48,107,.08); border-radius:8px; }
+.org-geser::-webkit-scrollbar-thumb{ background:var(--biru); border-radius:8px; border:3px solid transparent; background-clip:padding-box; min-width:48px; }
+.org-geser::-webkit-scrollbar-thumb:hover{ background:var(--biru-tua); background-clip:padding-box; }
+.org-geser::-webkit-scrollbar-button:horizontal:single-button{ width:16px; height:14px; background-repeat:no-repeat; background-position:center; background-size:8px; }
+.org-geser::-webkit-scrollbar-button:horizontal:decrement{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M8 1 2 5l6 4z' fill='%2317306B'/%3E%3C/svg%3E"); }
+.org-geser::-webkit-scrollbar-button:horizontal:increment{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M2 1l6 4-6 4z' fill='%2317306B'/%3E%3C/svg%3E"); }
+@supports not selector(::-webkit-scrollbar){
+  .org-geser{ scrollbar-width:auto; scrollbar-color:var(--biru) rgba(23,48,107,.08); }
 }
 
 /* produk */

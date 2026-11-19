@@ -100,37 +100,39 @@
         <h3>Struktur organisasi</h3>
         <p>Tim yang menyiapkan setiap mangkuk misoa untuk Anda.</p>
 
-        <div class="org">
-          <div class="org-node org-pemilik">Pemilik</div>
+        <div class="org-geser">            <!-- TAMBAHAN: pembungkus yang bisa digeser -->
+          <div class="org">
+            <div class="org-node org-pemilik">Pemilik</div>
 
-          <div class="org-tengah">
-            <div class="org-node org-manajer">Manajer Persediaan</div>
-            <div class="org-node org-manajer">Manajer Produksi</div>
+            <div class="org-tengah">
+              <div class="org-node org-manajer">Manajer Persediaan</div>
+              <div class="org-node org-manajer">Manajer Produksi</div>
+            </div>
+
+            <div class="org-node org-leader">Kepala Kedai</div>
+
+            <ul class="org-bawah">
+              <li>
+                <div class="org-node org-kepala">Kepala Dapur</div>
+                <ul class="org-sub">
+                  <li><div class="org-node org-staf">Juru Masak</div></li>
+                  <li><div class="org-node org-staf">Pembantu Dapur</div></li>
+                  <li><div class="org-node org-staf">Petugas Penyajian</div></li>
+                </ul>
+              </li>
+              <li><div class="org-node org-kepala">Kasir</div></li>
+              <li><div class="org-node org-kepala">Pelayan</div></li>
+              <li>
+                <div class="org-node org-kepala">Petugas Kebersihan</div>
+                <ul class="org-sub">
+                  <li><div class="org-node org-staf">Pembersih Meja</div></li>
+                  <li><div class="org-node org-staf">Pembersih Peralatan</div></li>
+                  <li><div class="org-node org-staf">Petugas Kebersihan Area</div></li>
+                </ul>
+              </li>
+            </ul>
           </div>
-
-          <div class="org-node org-leader">Kepala Kedai</div>
-
-          <ul class="org-bawah">
-            <li>
-              <div class="org-node org-kepala">Kepala Dapur</div>
-              <ul class="org-sub">
-                <li><div class="org-node org-staf">Juru Masak</div></li>
-                <li><div class="org-node org-staf">Pembantu Dapur</div></li>
-                <li><div class="org-node org-staf">Petugas Penyajian</div></li>
-              </ul>
-            </li>
-            <li><div class="org-node org-kepala">Kasir</div></li>
-            <li><div class="org-node org-kepala">Pelayan</div></li>
-            <li>
-              <div class="org-node org-kepala">Petugas Kebersihan</div>
-              <ul class="org-sub">
-                <li><div class="org-node org-staf">Pembersih Meja</div></li>
-                <li><div class="org-node org-staf">Pembersih Peralatan</div></li>
-                <li><div class="org-node org-staf">Petugas Kebersihan Area</div></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
+        </div>                              <!-- penutup .org-geser -->
       </div>
     </div>
   </section>

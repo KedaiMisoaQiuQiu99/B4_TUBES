@@ -148,4 +148,14 @@
   }
 
   document.getElementById("tahun").textContent = new Date().getFullYear();
+  
+})();
+
+/* Bagan organisasi: di layar kecil mulai dari tengah (posisi Pemilik) */
+(function () {
+  var geser = document.querySelector('.org-geser');
+  if (!geser) return;
+  function tengah() { geser.scrollLeft = (geser.scrollWidth - geser.clientWidth) / 2; }
+  tengah();
+  window.addEventListener('load', tengah);
 })();
