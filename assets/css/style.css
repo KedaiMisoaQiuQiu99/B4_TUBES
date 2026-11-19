@@ -361,6 +361,14 @@ a{color:inherit}
 .baris-wa span{font-size:.93rem}
 
 .footer{background:var(--biru-tua);color:#cfd6ea;padding:1.5rem 0;font-size:.9rem}
+/* Tombol kembali ke atas (warna & gaya sesuai desain situs) */
+.ke-atas{position:fixed;right:1.1rem;bottom:1.1rem;z-index:1040;display:grid;place-items:center;width:2.9rem;height:2.9rem;
+  background:var(--kuning);color:var(--biru-tua);border:2px solid var(--biru);border-radius:12px;
+  font-size:1.3rem;line-height:1;text-decoration:none;box-shadow:3px 3px 0 var(--biru);
+  opacity:0;visibility:hidden;transform:translateY(12px);
+  transition:opacity .25s,transform .25s,visibility .25s,background .2s,box-shadow .2s}
+.ke-atas.tampil{opacity:1;visibility:visible;transform:none}
+.ke-atas:hover{background:#ffd679;color:var(--biru-tua);box-shadow:1px 1px 0 var(--biru);transform:translate(2px,2px)}
 
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}

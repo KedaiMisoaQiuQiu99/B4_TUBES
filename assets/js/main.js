@@ -151,11 +151,16 @@
   
 })();
 
-/* Bagan organisasi: di layar kecil mulai dari tengah (posisi Pemilik) */
+/* Tombol kembali ke atas: muncul setelah menggulir, klik = langsung ke paling atas */
 (function () {
-  var geser = document.querySelector('.org-geser');
-  if (!geser) return;
-  function tengah() { geser.scrollLeft = (geser.scrollWidth - geser.clientWidth) / 2; }
-  tengah();
-  window.addEventListener('load', tengah);
+  var tombol = document.getElementById("ke-atas");
+  if (!tombol) return;
+  function cek() { tombol.classList.toggle("tampil", window.scrollY > 400); }
+  window.addEventListener("scroll", cek, { passive: true });
+  cek();
+  tombol.addEventListener("click", function (e) {
+    e.preventDefault();
+    var pelan = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: pelan ? "smooth" : "auto" });
+  });
 })();
