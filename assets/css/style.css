@@ -158,13 +158,50 @@ a{color:inherit}
 .org-staf{ font-size:.88rem; padding:.5rem .7rem; box-shadow:none; }
 
 
-/* Pemilik -> Manajer */
+/* Sambungan Pemilik ke dua Manajer */
 .org-tengah {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: var(--j) 0;
+}
+
+/* Garis horizontal */
+.org-tengah::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: calc(var(--j) / 2);
+  height: var(--t);
+  background: var(--garis);
+  z-index: 0;
+}
+
+/* Garis vertikal dari Pemilik */
+.org-tengah::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -6px;
+  width: var(--t);
+  background: var(--garis);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* Garis turun menuju masing-masing manajer */
+.org-manajer::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(var(--j) / -2);
+  height: calc(var(--j) / 2);
+  width: var(--t);
+  background: var(--garis);
+  transform: translateX(-50%);
 }
 
 /* Garis vertikal utama */
