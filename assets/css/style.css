@@ -194,10 +194,9 @@ a{color:inherit}
   border-left:var(--t) solid var(--garis); border-bottom:var(--t) solid var(--garis); border-bottom-left-radius:10px;
 }
 .org-sub > li:first-child::before{ top:-14px; height:calc(50% + 14px); }
-.org-sub > li:not(:last-child)::after{ /* lanjutan garis ke item berikutnya */
-  content:""; position:absolute; left:-1.2rem; top:50%; bottom:-14px; width:var(--t); background:var(--garis);
+.org-sub > li:not(:last-child)::after{
+  content:""; position:absolute; left:-1.2rem; top:25%; bottom:-14px; width:var(--t); background:var(--garis);
 }
-
 /* Tablet dan HP: kotak menumpuk, garis utama disembunyikan */
 @media (max-width:991px){
   .org-tengah::before, .org-tengah::after, .org-manajer::before,
