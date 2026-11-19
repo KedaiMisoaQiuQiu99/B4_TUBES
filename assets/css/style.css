@@ -160,19 +160,19 @@ a{color:inherit}
 /* Pemilik -> dua manajer (garis tengah terus turun ke Leader) */
 .org-tengah{ position:relative; width:100%; display:flex; justify-content:space-between; padding:var(--j) 0; }
 .org-tengah::before{ /* garis vertikal tengah */
-  content:""; position:absolute; left:50%; top:0; bottom:0; width:var(--t); transform:translateX(-50%); background:var(--garis);
+  content:""; position:absolute; left:50%; top:-3px; bottom:-6px; width:var(--t); transform:translateX(-50%); background:var(--garis);
 }
 .org-tengah::after{ /* garis horizontal ke kedua manajer (titik tengah kotak = 15% dan 85%) */
   content:""; position:absolute; left:15%; right:15%; top:calc(var(--j) / 2); height:var(--t); transform:translateY(-50%); background:var(--garis);
 }
 .org-manajer::before{ /* sambungan turun ke tiap manajer */
-  content:""; position:absolute; left:50%; bottom:100%; height:calc(var(--j) / 2); width:var(--t); transform:translateX(-50%); background:var(--garis);
+  content:""; position:absolute; left:50%; bottom:calc(100% - 3px); height:calc(var(--j) / 2 + 3px); width:var(--t); transform:translateX(-50%); background:var(--garis);
 }
 
 /* Leader -> garis turun ke 4 divisi */
 .org-leader{ z-index:1; }
 .org-leader::after{
-  content:""; position:absolute; left:50%; top:100%; height:calc(var(--j) / 2); width:var(--t); transform:translateX(-50%); background:var(--garis);
+  content:""; position:absolute; left:50%; top:calc(100% - 1px); height:calc(var(--j) / 2 + var(--t) / 2 + 1px); width:var(--t); transform:translateX(-50%); background:var(--garis);
 }
 
 /* Empat divisi (titik tengah kolom = 12.5%, 37.5%, 62.5%, 87.5%) */
@@ -182,7 +182,7 @@ a{color:inherit}
 }
 .org-bawah > li{ position:relative; padding:0 .5rem; }
 .org-bawah > li::before{
-  content:""; position:absolute; left:50%; top:calc(var(--j) / -2); height:calc(var(--j) / 2); width:var(--t); transform:translateX(-50%); background:var(--garis);
+  content:""; position:absolute; left:50%; top:calc(var(--j) / -2); height:calc(var(--j) / 2 + 3px); width:var(--t); transform:translateX(-50%); background:var(--garis);
 }
 
 /* Anak buah di bawah Head Dapur dan Petugas Kebersihan (siku per item) */
