@@ -157,32 +157,105 @@ a{color:inherit}
 .org-kepala{ background:var(--krem); height:100%; display:flex; align-items:center; justify-content:center; }
 .org-staf{ font-size:.88rem; padding:.5rem .7rem; box-shadow:none; }
 
-/* Pemilik -> dua manajer (garis tengah terus turun ke Leader) */
-.org-tengah{ position:relative; width:100%; display:flex; justify-content:space-between; padding:var(--j) 0; }
-.org-tengah::before{ /* garis vertikal tengah */
-  content:""; position:absolute; left:50%; top:-3px; bottom:-6px; width:var(--t); transform:translateX(-50%); background:var(--garis);
-}
-.org-tengah::after{ /* garis horizontal ke kedua manajer (titik tengah kotak = 15% dan 85%) */
-  content:""; position:absolute; left:15%; right:15%; top:calc(var(--j) / 2); height:var(--t); transform:translateY(-50%); background:var(--garis);
-}
-.org-manajer::before{ /* sambungan turun ke tiap manajer */
-  content:""; position:absolute; left:50%; bottom:calc(100% - 3px); height:calc(var(--j) / 2 + 4px); width:var(--t); transform:translateX(-50%); background:var(--garis);
+
+/* Pemilik -> Manajer */
+.org-tengah {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--j) 0;
 }
 
-/* Leader -> garis turun ke 4 divisi */
-.org-leader{ z-index:1; }
-.org-bawah::after{ /* garis turun dari Kepala Kedai ke garis horizontal (satu wadah dengan garis horizontal, jadi tidak bergeser) */
-  content:""; position:absolute; left:50%; top:-2px; height:calc(var(--j) / 2 + 3px); width:var(--t); transform:translateX(-50%); background:var(--garis);
+/* Garis vertikal utama */
+.org-tengah::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  bottom: -6px;
+  width: var(--t);
+  background: var(--garis);
+  transform: translateX(-50%);
 }
 
-/* Empat divisi (titik tengah kolom = 12.5%, 37.5%, 62.5%, 87.5%) */
-.org .org-bawah{ position:relative; width:100%; display:grid; grid-template-columns:repeat(4,1fr); padding-top:var(--j); align-items:start; }
-.org-bawah::before{
-  content:""; position:absolute; left:12.5%; right:12.5%; top:calc(var(--j) / 2); height:var(--t); transform:translateY(-50%); background:var(--garis);
+/* Garis horizontal penghubung */
+.org-tengah::after {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  top: calc(var(--j) / 2);
+  height: var(--t);
+  background: var(--garis);
+  transform: translateY(-50%);
 }
-.org-bawah > li{ position:relative; padding:0 .5rem; }
-.org-bawah > li::before{
-  content:""; position:absolute; left:50%; top:calc(var(--j) / -2); height:calc(var(--j) / 2 + 3px); width:var(--t); transform:translateX(-50%); background:var(--garis);
+
+/* Sambungan menuju kotak manajer */
+.org-manajer::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% - 3px);
+  height: calc(var(--j) / 2 + 4px);
+  width: var(--t);
+  background: var(--garis);
+  transform: translateX(-50%);
+}
+
+/* Leader -> empat divisi */
+.org-leader {
+  position: relative;
+  z-index: 1;
+}
+
+/* Garis vertikal dari kepala kedai */
+.org-bawah::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  height: calc(var(--j) / 2 + 3px);
+  width: var(--t);
+  background: var(--garis);
+  transform: translateX(-50%);
+}
+
+/* Garis horizontal empat divisi */
+.org .org-bawah {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding-top: var(--j);
+  align-items: start;
+}
+
+.org-bawah::before {
+  content: "";
+  position: absolute;
+  left: 12.5%;
+  right: 12.5%;
+  top: calc(var(--j) / 2);
+  height: var(--t);
+  background: var(--garis);
+}
+
+/* Garis vertikal menuju setiap divisi */
+.org-bawah > li {
+  position: relative;
+  padding: 0 .5rem;
+}
+
+.org-bawah > li::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(var(--j) / -2);
+  height: calc(var(--j) / 2 + 3px);
+  width: var(--t);
+  background: var(--garis);
+  transform: translateX(-50%);
 }
 
 /* Anak buah di bawah Head Dapur dan Petugas Kebersihan (siku per item) */
