@@ -166,13 +166,13 @@ a{color:inherit}
   content:""; position:absolute; left:15%; right:15%; top:calc(var(--j) / 2); height:var(--t); transform:translateY(-50%); background:var(--garis);
 }
 .org-manajer::before{ /* sambungan turun ke tiap manajer */
-  content:""; position:absolute; left:50%; bottom:calc(100% - 3px); height:calc(var(--j) / 2 + 3px); width:var(--t); transform:translateX(-50%); background:var(--garis);
+  content:""; position:absolute; left:50%; bottom:calc(100% - 3px); height:calc(var(--j) / 2 + 4px); width:var(--t); transform:translateX(-50%); background:var(--garis);
 }
 
 /* Leader -> garis turun ke 4 divisi */
 .org-leader{ z-index:1; }
-.org-leader::after{
-  content:""; position:absolute; left:50%; top:calc(100% - 1px); height:calc(var(--j) / 2 + var(--t) / 2 + 1px); width:var(--t); transform:translateX(-50%); background:var(--garis);
+.org-bawah::after{ /* garis turun dari Kepala Kedai ke garis horizontal (satu wadah dengan garis horizontal, jadi tidak bergeser) */
+  content:""; position:absolute; left:50%; top:-2px; height:calc(var(--j) / 2 + 3px); width:var(--t); transform:translateX(-50%); background:var(--garis);
 }
 
 /* Empat divisi (titik tengah kolom = 12.5%, 37.5%, 62.5%, 87.5%) */
@@ -194,13 +194,14 @@ a{color:inherit}
   border-left:var(--t) solid var(--garis); border-bottom:var(--t) solid var(--garis); border-bottom-left-radius:10px;
 }
 .org-sub > li:first-child::before{ top:-14px; height:calc(50% + 14px); }
-.org-sub > li:not(:last-child)::after{
+.org-sub > li:not(:last-child)::after{ /* lanjutan garis ke item berikutnya */
   content:""; position:absolute; left:-1.2rem; top:25%; bottom:-14px; width:var(--t); background:var(--garis);
 }
+
 /* Tablet dan HP: kotak menumpuk, garis utama disembunyikan */
 @media (max-width:991px){
   .org-tengah::before, .org-tengah::after, .org-manajer::before,
-  .org-leader::after, .org-bawah::before, .org-bawah > li::before{ display:none; }
+  .org-bawah::after, .org-bawah::before, .org-bawah > li::before{ display:none; }
   .org-tengah{ flex-direction:column; align-items:center; gap:12px; padding:16px 0; }
   .org-manajer{ width:min(100%,320px); }
   .org .org-bawah{ grid-template-columns:repeat(2,1fr); gap:18px 0; padding-top:20px; }
