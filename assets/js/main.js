@@ -93,14 +93,12 @@
   var daftar = document.getElementById("daftar-produk");
   daftar.innerHTML = PRODUK.map(function (p) {
     var foto = "assets/img/produk/" + p[2] + ".jpg";
-    var pesan = encodeURIComponent("Halo Kedai Misoa Qiu Qiu, saya mau pesan " + p[1]);
     return '<div class="col-6 col-md-4 col-lg-3 produk-item" data-kategori="' + p[0] + '">' +
       '<article class="kartu-produk">' +
       '<a class="foto glightbox" href="' + foto + '" data-gallery="menu" data-title="' + p[1] + '" aria-label="Perbesar foto ' + p[1] + '">' +
       '<img src="' + foto + '" alt="' + p[1] + '" loading="lazy" width="513" height="640">' +
       '<span class="zoom"><i class="bi bi-zoom-in"></i></span></a>' +
       '<div class="kartu-isi"><h3>' + p[1] + '</h3><p>' + p[3] + '</p>' +
-      '<a class="btn" href="https://wa.me/' + WA_PESAN + '?text=' + pesan + '" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Pesan</a>' +
       '</div></article></div>';
   }).join("");
 
