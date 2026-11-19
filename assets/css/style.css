@@ -158,25 +158,13 @@ a{color:inherit}
 .org-staf{ font-size:.88rem; padding:.5rem .7rem; box-shadow:none; }
 
 
-/* Sambungan Pemilik ke dua Manajer */
+/* Pemilik -> dua Manajer */
 .org-tengah {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: var(--j) 0;
-}
-
-/* Garis horizontal */
-.org-tengah::after {
-  content: "";
-  position: absolute;
-  left: 15%;
-  right: 15%;
-  top: calc(var(--j) / 2);
-  height: var(--t);
-  background: var(--garis);
-  z-index: 0;
 }
 
 /* Garis vertikal dari Pemilik */
@@ -187,33 +175,8 @@ a{color:inherit}
   top: -3px;
   bottom: -6px;
   width: var(--t);
-  background: var(--garis);
   transform: translateX(-50%);
-  z-index: 0;
-}
-
-/* Garis turun menuju masing-masing manajer */
-.org-manajer::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: calc(var(--j) / -2);
-  height: calc(var(--j) / 2);
-  width: var(--t);
   background: var(--garis);
-  transform: translateX(-50%);
-}
-
-/* Garis vertikal utama */
-.org-tengah::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -3px;
-  bottom: -6px;
-  width: var(--t);
-  background: var(--garis);
-  transform: translateX(-50%);
 }
 
 /* Garis horizontal penghubung */
@@ -225,10 +188,9 @@ a{color:inherit}
   top: calc(var(--j) / 2);
   height: var(--t);
   background: var(--garis);
-  transform: translateY(-50%);
 }
 
-/* Sambungan menuju kotak manajer */
+/* Sambungan ke masing-masing Manajer */
 .org-manajer::before {
   content: "";
   position: absolute;
@@ -236,9 +198,10 @@ a{color:inherit}
   bottom: calc(100% - 3px);
   height: calc(var(--j) / 2 + 4px);
   width: var(--t);
-  background: var(--garis);
   transform: translateX(-50%);
+  background: var(--garis);
 }
+
 
 /* Leader -> empat divisi */
 .org-leader {
